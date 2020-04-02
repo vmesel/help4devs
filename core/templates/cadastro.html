@@ -1,0 +1,124 @@
+{% load static %}
+{% load widget_tweaks %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Primary Meta Tags -->
+    <title>Help4Devs - Ajude um desenvolvedor a ser recolocado no mercado!</title>
+    <meta name="title" content="Help4Devs - Ajude um desenvolvedor a ser recolocado no mercado!">
+    <meta name="description" content="Com o Help4Devs, as empresas e os seus colegas poderão ver que você busca recolocação nesse momento de crise e vão lhe ajudar">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://metatags.io/">
+    <meta property="og:title" content="Help4Devs - Ajude um desenvolvedor a ser recolocado no mercado!">
+    <meta property="og:description" content="Com o Help4Devs, as empresas e os seus colegas poderão ver que você busca recolocação nesse momento de crise e vão lhe ajudar">
+    <meta property="og:image" content="https://metatags.io/assets/meta-tags-16a33a6a8531e519cc0936fbba0ad904e52d35f34a46c97a2c9f6f7dd7d336f2.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://metatags.io/">
+    <meta property="twitter:title" content="Help4Devs - Ajude um desenvolvedor a ser recolocado no mercado!">
+    <meta property="twitter:description" content="Com o Help4Devs, as empresas e os seus colegas poderão ver que você busca recolocação nesse momento de crise e vão lhe ajudar">
+    <meta property="twitter:image" content="https://metatags.io/assets/meta-tags-16a33a6a8531e519cc0936fbba0ad904e52d35f34a46c97a2c9f6f7dd7d336f2.png">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="/docs/4.0/assets/img/favicons/favicon.ico">
+
+    <title>Help4Devs</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/album/">
+
+    <!-- Bootstrap core CSS -->
+    <link href="https://getbootstrap.com/docs/4.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="album.css" rel="stylesheet">
+  </head>
+
+  <body>
+
+    <header>
+      <div class="collapse bg-dark" id="navbarHeader">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-8 col-md-7 py-4">
+              <h4 class="text-white">Sobre</h4>
+              <p class="text-muted">Essa é uma iniciativa para ajudar desenvolvedores a encontrarem um novo emprego nesse momento de crise.</p>
+            </div>
+            <div class="col-sm-4 offset-md-1 py-4">
+              <h4 class="text-white">Contate-nos</h4>
+              <ul class="list-unstyled">
+                <li><a href="vinicius@pyjobs.com.br" class="text-white">Me mande um email</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="navbar navbar-dark bg-dark box-shadow">
+        <div class="container d-flex justify-content-between">
+          <a href="/" class="navbar-brand d-flex align-items-center">
+            <strong>Help4Devs</strong>
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main role="main">
+
+
+      <section class="container pessoas">
+          <form method="post">
+            {% csrf_token %}
+            <p>{{ message }}</p>
+            {% csrf_token %}
+            {% for hidden_field in form.hidden_fields %}
+              {{ hidden_field }}
+            {% endfor %}
+            {% for field in form.visible_fields %}
+            {% if field.html_name != "on_mailing_list" %}
+            <div class="row" style="margin-top:25px;">
+                <div class="col-md-12">
+                {{ field.label_tag }}
+                </div>
+            </div>
+            {% endif %}
+            <div class="row">
+                <div class="col-md-12">
+                    {% render_field field style="margin-top:5px; width:100%; height: 44px;border-radius: 10px;border: 1px solid rgba(170, 170, 170, 0.3);overflow: hidden;padding: 10px;-moz-box-shadow:    inset 0 0 5px #aaa;-webkit-box-shadow: inset 0 0 5px #aaa;box-shadow: inset 0 0 5px #aaa;-webkit-appearance: none;-moz-appearance: none;"%}
+                    {% for error in field.errors %}
+                    <div class="invalid-feedback">
+                      {{ error }}
+                    </div>
+                    {% endfor %}
+                    {% if field.help_text %}
+                      <small class="form-text text-muted">{{ field.help_text|safe }}</small>
+                    {% endif %}
+                </div>
+            </div>
+            {% endfor %}
+            <div class="form-group">
+              <button class="botao" type="submit" style="margin-top: 20px;">ENVIAR</button>
+            </div>
+            <!-- <input type="submit" value="Quero me cadastrar nessa lista"> -->
+          </form>
+      </section>
+
+    </main>
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="https://getbootstrap.com/docs/4.0//assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+    <script src="https://getbootstrap.com/docs/4.0/assets/js/vendor/popper.min.js"></script>
+    <script src="https://getbootstrap.com/docs/4.0/dist/js/bootstrap.min.js"></script>
+    <script src="https://getbootstrap.com/docs/4.0/assets/js/vendor/holder.min.js"></script>
+  </body>
+</html>

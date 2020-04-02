@@ -1,0 +1,138 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Primary Meta Tags -->
+    <title>Help4Devs - Ajude um desenvolvedor a ser recolocado no mercado!</title>
+    <meta name="title" content="Help4Devs - Ajude um desenvolvedor a ser recolocado no mercado!">
+    <meta name="description" content="Com o Help4Devs, as empresas e os seus colegas poderão ver que você busca recolocação nesse momento de crise e vão lhe ajudar">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://metatags.io/">
+    <meta property="og:title" content="Help4Devs - Ajude um desenvolvedor a ser recolocado no mercado!">
+    <meta property="og:description" content="Com o Help4Devs, as empresas e os seus colegas poderão ver que você busca recolocação nesse momento de crise e vão lhe ajudar">
+    <meta property="og:image" content="https://metatags.io/assets/meta-tags-16a33a6a8531e519cc0936fbba0ad904e52d35f34a46c97a2c9f6f7dd7d336f2.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://metatags.io/">
+    <meta property="twitter:title" content="Help4Devs - Ajude um desenvolvedor a ser recolocado no mercado!">
+    <meta property="twitter:description" content="Com o Help4Devs, as empresas e os seus colegas poderão ver que você busca recolocação nesse momento de crise e vão lhe ajudar">
+    <meta property="twitter:image" content="https://metatags.io/assets/meta-tags-16a33a6a8531e519cc0936fbba0ad904e52d35f34a46c97a2c9f6f7dd7d336f2.png">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="/docs/4.0/assets/img/favicons/favicon.ico">
+
+    <title>Help4Devs</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/album/">
+
+    <!-- Bootstrap core CSS -->
+    <link href="https://getbootstrap.com/docs/4.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="album.css" rel="stylesheet">
+  </head>
+
+  <body>
+
+    <header>
+      <div class="collapse bg-dark" id="navbarHeader">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-8 col-md-7 py-4">
+              <h4 class="text-white">Sobre</h4>
+              <p class="text-muted">Essa é uma iniciativa para ajudar desenvolvedores a encontrarem um novo emprego nesse momento de crise.</p>
+            </div>
+            <div class="col-sm-4 offset-md-1 py-4">
+              <h4 class="text-white">Contate-nos</h4>
+              <ul class="list-unstyled">
+                <li><a href="vinicius@pyjobs.com.br" class="text-white">Me mande um email</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="navbar navbar-dark bg-dark box-shadow">
+        <div class="container d-flex justify-content-between">
+          <a href="/" class="navbar-brand d-flex align-items-center">
+            <strong>Help4Devs</strong>
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main role="main">
+
+      <section class="jumbotron text-center">
+        <div class="container">
+          <h1 class="jumbotron-heading">Help4Devs</h1>
+          <p class="lead text-muted">Uma iniciativa para auxiliar desenvolvedores a encontrarem seu próximo emprego durante essa crise do CoronaVirus.</p>
+          <p>
+            <a href="/cadastro/" class="btn btn-primary my-2">Quero colocar meu nome na lista</a>
+          </p>
+        </div>
+      </section>
+      <section class="container apoiadores" style="margin-bottom: 20px;">
+        <h4>Este é um site open-source apoiado por:</h4>
+        <div class="row">
+        <div class="col-md-6">
+            <a href="https://pyjobs.com.br">
+                <img src="https://www.pyjobs.com.br/static/assets/img/logo-PyJobs.svg" alt="PyJobs" height="100">
+            </a>
+        </div>
+        <div class="col-md-6">
+            <a href="http://recrutadev.com.br">
+                <img src="http://recrutadev.com.br/assets/img/RecrutaDev_Original_1@300x.png" alt="RecrutaDev" height="100">
+            </a>
+        </div>
+    </div>
+    <hr>
+    </section>
+
+
+      <section class="container pessoas">
+          <h3>Devs buscando recolocação</h3>
+          <div class="row">
+            <div class="col-md-3" style="border:1px solid #ccc;">Nome - Job que exercia</div>
+            <div class="col-md-3" style="border:1px solid #ccc;">Github</div>
+            <div class="col-md-3" style="border:1px solid #ccc;">Linkedin</div>
+            <div class="col-md-3" style="border:1px solid #ccc;">Localidade</div>
+          </div>
+          {% for dev in available_devs %}
+          <div class="row">
+            <div class="col-md-3" style="border:1px solid #ccc;">
+                {{dev.name}}
+            </div>
+            <div class="col-md-3" style="border:1px solid #ccc;">
+                <a href="{{dev.github}}">{{dev.github}}</a>
+            </div>
+            <div class="col-md-3" style="border:1px solid #ccc;">
+                <a href="{{dev.linkedin}}">{{dev.linkedin}}</a>
+            </div>
+            <div class="col-md-3" style="border:1px solid #ccc;">
+                {{dev.place}}
+            </div>
+          </div>
+          {% endfor %}
+      </section>
+
+    </main>
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="https://getbootstrap.com/docs/4.0//assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+    <script src="https://getbootstrap.com/docs/4.0/assets/js/vendor/popper.min.js"></script>
+    <script src="https://getbootstrap.com/docs/4.0/dist/js/bootstrap.min.js"></script>
+    <script src="https://getbootstrap.com/docs/4.0/assets/js/vendor/holder.min.js"></script>
+  </body>
+</html>

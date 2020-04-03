@@ -11,3 +11,7 @@ class Dev(models.Model):
     email = models.EmailField(blank=False, null=False, verbose_name="Seu e-mail")
     github = models.URLField(blank=True, null=True, verbose_name="Seu Github, se tiver")
     linkedin = models.URLField(blank=True, null=True, verbose_name="Seu Linkedin, se tiver")
+
+    @property
+    def short_linkedin_url(self):
+        return str(self.linkedin).split('/in/')[1]

@@ -111,7 +111,7 @@
                 {{dev.name}} - {{dev.job}}
             </div>
             <div class="col-md-3" style="border:1px solid #ccc;">
-                <a href="{{dev.github}}">{{dev.github}}</a>
+                <a href="{{dev.github}}">{{dev.short_github_url |truncatechars:"25"}}</a>
             </div>
             <div class="col-md-3" style="border:1px solid #ccc;">
                 <a href="{{dev.linkedin}}">{{dev.short_linkedin_url |truncatechars:"25"}}</a>

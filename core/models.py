@@ -14,4 +14,12 @@ class Dev(models.Model):
 
     @property
     def short_linkedin_url(self):
+        if self.linkedin is None:
+            return ""
         return str(self.linkedin).split('/in/')[1]
+
+    @property
+    def short_github_url(self):
+        if self.github is None:
+            return ""
+        return str(self.github).split('.com/')[1]

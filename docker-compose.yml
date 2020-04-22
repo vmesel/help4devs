@@ -1,0 +1,35 @@
+version: '3.7'
+
+services:
+  help4dev:
+    container_name: help4dev
+    image: help4dev
+    build:
+      context: .
+    command: pipenv run python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/code
+    ports:
+      - 80:8000
+    depends_on:
+      - tasks-migrate
+    networks:
+      - help4dev_network
+
+  tasks-migrate:
+    container_name: migrate
+    image: help4dev
+    build:
+      context: .
+    command: pipenv run python manage.py migrate
+    volumes:
+      - .:/code
+    networks:
+      - help4dev_network
+
+networks:
+  help4dev_network:
+    name: django_help4dev_network
+    ipam:
+      config:
+        - subnet: 172.21.0.0/16
